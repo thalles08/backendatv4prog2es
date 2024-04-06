@@ -1,6 +1,6 @@
 import express from "express";
 import session from 'express-session';
-import autenticar, {verificaAutenticacao} from './seguranca/autenticar.js';
+import cors from 'cors';
 import rotaProfissional from "./rotas/rotaProfissional.js";
 import rotaFuncionario from "./rotas/rotaFuncionario.js"
 
@@ -20,6 +20,8 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(express.json());
 
+app.use(cors());
+
 app.get('/', (requisicao, resposta) => {
     resposta.redirect('/login.html');
 });
@@ -28,10 +30,10 @@ app.get('/login', (requisicao, resposta) => {
     resposta.redirect('/login.html');
 });
 
-app.post('/login', autenticar);
+//app.post('/login', autenticar);
 
 app.use(express.static('./paginas/publico'));
-app.use(verificaAutenticacao, express.static('./paginas/protegido'));
+
 
 app.use('/profissional', rotaProfissional);
 app.use('/funcionario', rotaFuncionario);
