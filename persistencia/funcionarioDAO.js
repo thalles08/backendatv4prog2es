@@ -17,7 +17,7 @@ export default class FuncionarioDAO {
     async atualizar(funcionario) {
         if (funcionario instanceof Funcionario) {
             const conexao = await Conectar();
-            const sql = "UPDATE funcionario SET nome = ?, dataNascimento = ?, cpf = ?, endereco = ?, telefone = ?, email = ?, WHERE id = ?";
+            const sql = "UPDATE funcionario SET nome = ?, dataNascimento = ?, cpf = ?, endereco = ?, telefone = ?, email = ? WHERE id = ?";
             const parametros = [funcionario.nome, funcionario.dataNascimento, funcionario.cpf, funcionario.endereco, funcionario.telefone, funcionario.email, funcionario.id];
             await conexao.query(sql, parametros);
             global.poolConexoes.releaseConnection(conexao);

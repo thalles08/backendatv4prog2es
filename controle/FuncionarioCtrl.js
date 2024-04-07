@@ -62,7 +62,7 @@ export default class FuncionarioCtrl {
             const email = dados.email;
 
             if (nome && dataNascimento && cpf && endereco && telefone && email){
-                const funcionario = new Funcionario(id, nome && dataNascimento && cpf && endereco && telefone && email);
+                const funcionario = new Funcionario(id, nome, dataNascimento, cpf, endereco, telefone, email);
                 funcionario.atualizar().then(()=>{
                     resposta.json({
                         status: true,
@@ -97,7 +97,6 @@ export default class FuncionarioCtrl {
         
         if (requisicao.method === 'DELETE'){
             const dados = requisicao.body;
-
             const id = dados.id;
             
             if (id){
@@ -117,7 +116,7 @@ export default class FuncionarioCtrl {
             else {
                 resposta.json({
                     status: false,
-                    mensagem: "O campo id é obrigatório!"
+                    mensagem: "O campo cpf é obrigatório!"
                 })
             }          
         }
