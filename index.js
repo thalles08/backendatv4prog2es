@@ -3,6 +3,7 @@ import session from 'express-session';
 import cors from 'cors';
 import rotaProfissional from "./rotas/rotaProfissional.js";
 import rotaFuncionario from "./rotas/rotaFuncionario.js"
+import rotaInscricao from "./rotas/rotaInscricao.js";
 
 const host = "0.0.0.0";
 const porta = 4000;
@@ -37,6 +38,7 @@ app.use(express.static('./paginas/publico'));
 
 app.use('/profissional', rotaProfissional);
 app.use('/funcionario', rotaFuncionario);
+app.use('/inscricao', rotaInscricao);
 
 app.listen(porta, host, () => {
     console.log(`Servidor esperando por requisições em http://${host}:${porta}`)
