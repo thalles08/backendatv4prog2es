@@ -107,7 +107,7 @@ export default class InscricaoCtrl {
                 inscricao.excluir().then(()=>{
                     resposta.json({
                         status: true,
-                        mensagem: "Inscrição excluída com sucesso!",                        
+                        mensagem: "Inscrição excluída!",                        
                     });
                 }).catch((erro)=>{
                     resposta.json({
@@ -119,7 +119,7 @@ export default class InscricaoCtrl {
             else {
                 resposta.json({
                     status: false,
-                    mensagem: "O campo cpf é obrigatório!"
+                    mensagem: "Os campos CPF e Vaga são obrigatórios!"
                 })
             }          
         }

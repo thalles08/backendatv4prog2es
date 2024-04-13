@@ -25,13 +25,13 @@ export default class InscricaoDAO {
     }
 
     async excluir(inscricao) {
-        if (inscricao instanceof Inscricao) {
+       if (inscricao instanceof Inscricao) {
             const conexao = await Conectar();
             const sql = "DELETE FROM inscricao WHERE cpf = ? AND vaga = ?";
             const parametros = [inscricao.cpf, inscricao.vaga];
             await conexao.query(sql, parametros);
             global.poolConexoes.releaseConnection(conexao);
-        }
+       }
     }
 
     async consultar(inscricao) {
