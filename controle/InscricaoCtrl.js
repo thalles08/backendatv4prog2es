@@ -15,9 +15,10 @@ export default class InscricaoCtrl {
             const endereco = dados.endereco;
             const telefone = dados.telefone;
             const email = dados.email;
+            const vaga = dados.vaga;
 
-            if (nome && dataNascimento && cpf && endereco && telefone && email){
-                const inscricao = new Inscricao(0, nome, dataNascimento, cpf, endereco, telefone, email);
+            if (nome && dataNascimento && cpf && endereco && telefone && email && vaga){
+                const inscricao = new Inscricao(0, nome, dataNascimento, cpf, endereco, telefone, email, vaga);
                 inscricao.gravar().then(()=>{
                     resposta.json({
                         status: true,
@@ -60,9 +61,10 @@ export default class InscricaoCtrl {
             const endereco = dados.endereco;
             const telefone = dados.telefone;
             const email = dados.email;
+            const vaga = dados.vaga;
 
-            if (nome && dataNascimento && cpf && endereco && telefone && email){
-                const inscricao = new Inscricao(id, nome, dataNascimento, cpf, endereco, telefone, email);
+            if (nome && dataNascimento && cpf && endereco && telefone && email && vaga){
+                const inscricao = new Inscricao(id, nome, dataNascimento, cpf, endereco, telefone, email, vaga);
                 inscricao.atualizar().then(()=>{
                     resposta.json({
                         status: true,
@@ -97,10 +99,11 @@ export default class InscricaoCtrl {
         
         if (requisicao.method === 'DELETE'){
             const dados = requisicao.body;
-            const id = dados.id;
+            const cpf = dados.cpf;
+            const vaga = dados.vaga;
             
-            if (id){
-                const inscricao = new Inscricao(id);
+            if (cpf && vaga){
+                const inscricao = new Inscricao(cpf, vaga);
                 inscricao.excluir().then(()=>{
                     resposta.json({
                         status: true,

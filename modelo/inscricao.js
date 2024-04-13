@@ -9,8 +9,9 @@ export default class Inscricao {
     #endereco
     #telefone
     #email
+    #vaga
 
-    constructor(id, nome, dataNascimento, cpf, endereco, telefone, email) {
+    constructor(id, nome, dataNascimento, cpf, endereco, telefone, email, vaga) {
         
         this.#id = id;
         this.#nome = nome;
@@ -19,6 +20,7 @@ export default class Inscricao {
         this.#endereco = endereco;
         this.#telefone = telefone;
         this.#email = email;
+        this.#vaga = vaga;
 
     }
 
@@ -78,6 +80,14 @@ export default class Inscricao {
         this.#email = novoEmail;
     }
 
+    get vaga() {
+        return this.#vaga;
+    }
+
+    set vaga(novaVaga) {
+        this.#vaga = novaVaga;
+    }
+
     toJSON() {
         return {
             id: this.id,
@@ -86,7 +96,8 @@ export default class Inscricao {
             cpf: this.#cpf,
             endereco: this.#endereco,
             telefone: this.#telefone,
-            email: this.#email
+            email: this.#email,
+            vaga: this.#vaga
         };
     }
 

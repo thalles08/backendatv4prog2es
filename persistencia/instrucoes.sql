@@ -29,5 +29,6 @@ CREATE TABLE inscricao(
     cpf VARCHAR(15) NOT NULL,
     endereco VARCHAR(100) NOT NULL,
     telefone VARCHAR(15) NOT NULL,
-    email VARCHAR(100) NOT NULL
+    email VARCHAR(100) NOT NULL,
+    vaga VARCHAR(100) NOT NULL
 );
