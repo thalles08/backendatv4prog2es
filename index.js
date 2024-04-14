@@ -23,21 +23,8 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get('/', (requisicao, resposta) => {
-    resposta.redirect('/login.html');
-});
-
-app.get('/login', (requisicao, resposta) => {
-    resposta.redirect('/login.html');
-});
-
-//app.post('/login', autenticar);
-
 app.use(express.static('./paginas/publico'));
 
-
-app.use('/profissional', rotaProfissional);
-app.use('/funcionario', rotaFuncionario);
 app.use('/inscricao', rotaInscricao);
 
 app.listen(porta, host, () => {
